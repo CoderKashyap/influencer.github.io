@@ -484,54 +484,50 @@ p {
 }
 
 .brands-strip {
-  padding-bottom: 18px;
+  padding: 56px 0 60px;
+  background: #f6f1ea;
 }
 
-.brands-marquee {
-  overflow: hidden;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  background: #fff;
-  backdrop-filter: blur(10px);
+.brands-title {
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--ink);
+  margin-bottom: 40px;
 }
 
-.brands-track {
-  display: flex;
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: center;
-  gap: 24px;
-  width: max-content;
-  padding: 18px 0;
-  animation: brandmarquee 28s linear infinite;
+  justify-items: center;
+  gap: 44px 32px;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--shell-pad);
 }
 
 .brand-chip {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 190px;
-  height: 82px;
-  padding: 16px 26px;
-  border-radius: 22px;
-  background: #fff;
-  border: 1px solid rgba(10, 31, 68, 0.08);
-  box-shadow: 0 12px 28px rgba(10, 31, 68, 0.05);
+  width: 100%;
+  height: 46px;
 }
 
 .brand-chip img {
   width: auto;
   max-width: 150px;
-  max-height: 38px;
+  max-height: 44px;
   object-fit: contain;
+  filter: grayscale(100%) contrast(0.85) brightness(0.35) opacity(0.85);
+  transition: filter 0.35s ease, transform 0.35s ease;
 }
 
-@keyframes brandmarquee {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
+.brand-chip:hover img {
+  filter: grayscale(0%) contrast(1) brightness(1) opacity(1);
+  transform: translateY(-2px);
 }
 
 .section {
@@ -1514,10 +1510,13 @@ p {
     font-size: 1.65rem;
   }
 
+  .brands-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 24px;
+  }
+
   .brand-chip {
-    min-width: 150px;
-    height: 70px;
-    padding: 14px 18px;
+    height: 36px;
   }
 
   .brand-chip img {
