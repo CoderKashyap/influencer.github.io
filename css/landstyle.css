@@ -344,11 +344,15 @@ select {
 
 .vs-nav-cta {
 
+    display: inline-flex;
+    gap: 10px;
+
     flex-shrink: 0;
 
-    width: 202px;
+    /* width: 202px; 
+        height: 39px;*/
 
-    height: 39px;
+    padding: 8px 14px;
 
     display: flex;
 
@@ -362,7 +366,7 @@ select {
 
     color: #ffffff;
 
-    font-size: 11px;
+    font-size: 14px;
 
     font-weight: 800;
 
