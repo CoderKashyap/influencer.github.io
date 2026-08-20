@@ -482,6 +482,70 @@
         font-weight: 700;
     }
 
+
+    
+  .call-now-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background-color: #2ecc71;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    font-family: Arial, sans-serif;
+    z-index: 9999;
+    animation: pulse 2s infinite;
+    transition: transform 0.2s ease;
+  }
+
+  .call-now-btn:hover {
+    transform: scale(1.05);
+    background-color: #27ae60;
+  }
+
+  .call-icon {
+    font-size: 20px;
+  }
+
+  .call-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .call-text span {
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px
+  }
+
+  .call-number {
+    font-size: 17px;
+    font-weight: bold;
+  }
+
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.5); }
+    70% { box-shadow: 0 0 0 12px rgba(46, 204, 113, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+  }
+
+  /* Mobile adjustment */
+  @media (max-width: 480px) {
+    .call-now-btn {
+      bottom: 15px;
+      right: 15px;
+      padding: 8px 16px;
+    }
+  }
+
+
+
     /* ================= RESPONSIVE ================= */
     @media (max-width:1080px) {
         .fc-inner {
@@ -1562,6 +1626,15 @@
 
         </div>
     </div>
+
+    <!-- Call Now Floating Button -->
+<a href="tel:+17272751986" class="call-now-btn">
+  <span class="call-icon"><i class="fa-solid fa-phone"></i></span>
+  <span class="call-text">
+    <span>Call Now</span>
+    <strong class="call-number">+17272751986</strong>
+  </span>
+</a>    
 
     <footer>
         <div class="f-main">
