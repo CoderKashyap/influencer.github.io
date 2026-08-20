@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./css/landstyle.css">
+    <script src="./js/landScript.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+
+
+<style>
+:root{
+  --navy:#0D2A5E;
+  --navy-footer:#0B2452;
+  --navy-btn:#0C2757;
+  --gold:#F5B301;
+  --f-link:#C3D0E4;
+  --divider:rgba(255,255,255,.14);
+  --radius:14px;
+}
+ 
+*{margin:0;padding:0;box-sizing:border-box;}
+ 
+body{
+  font-family:'Poppins',Arial,Helvetica,sans-serif;
+  background:#FFFFFF;
+  color:#0D0D0D;
+  -webkit-font-smoothing:antialiased;
+}
+ 
+.wrap{max-width:1300px;margin:0 auto;padding:0 36px;}
+ 
+/* ================= TOP ================= */
+.top{
+  display:grid;
+  grid-template-columns:34% 1fr;
+  gap:20px;
+  padding:40px 0;
+  align-items:stretch;
+}
+ 
+/* ---------- Testimonial ---------- */
+.testimonial{
+  background:var(--navy);
+  border-radius:var(--radius);
+  padding:26px 28px 28px;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  min-height:308px;
+}
+.testimonial h2{
+  font-size:19px;
+  font-weight:700;
+  letter-spacing:.4px;
+  line-height:1.2;
+  margin-bottom:14px;
+}
+.quote-mark{
+  display:block;
+  font-size:54px;
+  font-weight:700;
+  line-height:1;
+  height:30px;
+  color:#fff;
+  margin-bottom:10px;
+}
+.t-stage{position:relative;flex:1;}
+.t-slide{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  transition:opacity .55s ease, transform .55s ease, visibility .55s;
+}
+.t-slide.is-active{opacity:1;visibility:visible;transform:translateY(0);}
+ 
+.t-text{font-size:16px;font-weight:400;line-height:1.55;color:#fff;}
+.t-person{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin-top:auto;
+  padding-top:14px;
+}
+.t-avatar{
+  width:58px;height:58px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid rgba(255,255,255,.92);
+  flex:none;
+  background:#dbe3f0;
+}
+.t-name{font-size:15.5px;font-weight:700;line-height:1.3;}
+.t-role{font-size:14px;font-weight:400;color:#C6D2E6;line-height:1.4;margin-top:1px;}
+.t-stars{margin-top:5px;color:var(--gold);font-size:17px;letter-spacing:2px;line-height:1;}
+ 
+/* ---------- Form card ---------- */
+/* .formcard{
+  position:relative;
+  border-radius:var(--radius);
+  overflow:hidden;
+  min-height:308px;
+  background-color:#8FC0DE;
+  background-image:url("https://images.unsplash.com/photo-1430233831405-b0d673c05300?fm=jpg&q=80&w=1400&auto=format&fit=crop");
+  background-size:cover;
+  background-position:68% center;
+} */
+ 
+
+.formcard{
+  position:relative;
+  border-radius:var(--radius);
+  overflow:hidden;
+  min-height:308px;
+  background-color:#8FC0DE;        /* sky, shows if photo fails */
+}
+.formcard::after{
+  content:"";
+  position:absolute;
+  top:0; right:0; bottom:0;
+  width:30%;                        /* matches the area past the red panel */
+  background-color:#8FC0DE;
+  background-image:url("https://images.unsplash.com/photo-1430233831405-b0d673c05300?fm=jpg&q=85&w=400&h=850&fit=crop");
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+  z-index:0;                        /* red-panel is z-index 1, form is 2 */
+}
+
+.red-panel {
+    position: absolute;
+    top: -4px;
+    bottom: -4px;
+    left: -80px;
+    right: 26%;
+    background: linear-gradient(96deg, #C10F2B 0%, #D4172C 30%, #E62128 62%, #F0302F 94%, rgba(242, 56, 50, .7) 98%, rgba(242, 56, 50, 0) 100%);
+    transform: skewX(10deg);
+    z-index: 1;
+}
+
+
+
+.fc-inner{
+  position:relative;
+  z-index:2;
+  padding:26px 0 16px 38px;
+  width:66%;
+  min-width:0;
+  color:#fff;
+}
+.fc-inner h2{
+  font-size:clamp(16px,1.72vw,22px);
+  font-weight:800;
+  letter-spacing:.2px;
+  line-height:1.2;
+  margin-bottom:6px;
+}
+.fc-inner .sub{
+  font-size:14px;
+  font-weight:400;
+  color:#fff;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+ 
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px 11px;}
+.field{position:relative;}
+.field.full{grid-column:1 / -1;}
+ 
+input,select,textarea{
+  width:100%;
+  font-family:inherit;
+  font-size:14px;
+  font-weight:400;
+  color:#2f2f2f;
+  background:#fff;
+  border:none;
+  border-radius:7px;
+  padding:12px 14px;
+  outline:none;
+  display:block;
+}
+input::placeholder,textarea::placeholder{color:#8C8C8C;}
+textarea{min-height:58px;resize:vertical;line-height:1.45;}
+select{color:#8C8C8C;appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:36px;}
+select.has-value{color:#2f2f2f;}
+.field.select::after{
+  content:"";
+  position:absolute;
+  right:15px;top:50%;
+  width:8px;height:8px;
+  border-right:2px solid #5f5f5f;
+  border-bottom:2px solid #5f5f5f;
+  transform:translateY(-75%) rotate(45deg);
+  pointer-events:none;
+}
+input:focus,select:focus,textarea:focus{box-shadow:0 0 0 3px rgba(255,255,255,.45);}
+ 
+.btn-row{display:flex;justify-content:center;margin-top:10px;}
+.submit{
+  background:var(--navy-btn);
+  margin-top: 20px;
+  color:#fff;
+  font-family:inherit;
+  font-size:16px;
+  font-weight:700;
+  letter-spacing:.3px;
+  border:none;
+  border-radius:8px;
+  padding:10px 30px;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:13px;
+  box-shadow:0 4px 12px rgba(0,0,0,.2);
+  transition:transform .16s ease,box-shadow .16s ease,background .16s ease;
+}
+.submit:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.28);}
+.submit:active{transform:translateY(0);}
+.submit svg{width:21px;height:21px;fill:#fff;flex:none;}
+ 
+/* ================= FOOTER ================= */
+footer{background:var(--navy-footer);color:var(--f-link);}
+.f-main{
+  max-width:1300px;
+  margin:0 auto;
+  padding:32px 36px 24px;
+  display:grid;
+  grid-template-columns:26% 19.5% 24% 30.5%;
+}
+.f-col{padding-left:26px;border-left:1px solid var(--divider);}
+.f-col:first-child{padding-left:0;border-left:none;}
+ 
+.logo{display:flex;align-items:center;gap:10px;margin-bottom:13px;}
+.logo svg{display:block;flex:none;}
+.logo-txt .l1{font-size:24px;font-weight:800;color:#fff;letter-spacing:.4px;line-height:1;display:block;}
+.logo-txt .l2{font-size:9px;font-weight:600;color:#93A9CE;letter-spacing:2.4px;margin-top:4px;display:block;}
+.brand-p{font-size:13.5px;line-height:1.75;color:#B7C5DC;max-width:205px;font-weight:400;}
+ 
+.f-col h3{font-size:13.5px;font-weight:700;color:#fff;letter-spacing:.9px;text-transform:uppercase;margin-bottom:14px;}
+.f-col ul{list-style:none;}
+.f-col li{margin-bottom:8px;}
+.f-col a{color:var(--f-link);text-decoration:none;font-size:13.5px;font-weight:400;transition:color .15s ease;}
+.f-col a:hover{color:#fff;}
+ 
+.contact{position:relative;}
+.c-row{display:flex;align-items:center;gap:11px;margin-bottom:9px;}
+.c-row span{font-size:13.5px;color:var(--f-link);}
+.c-ico{width:18px;height:18px;flex:none;color:#8FA6CF;}
+.c-ico svg{width:18px;height:18px;fill:currentColor;display:block;}
+.usa-map{position:absolute;right:0;top:42px;width:118px;}
+.usa-map svg{width:100%;height:auto;display:block;}
+ 
+.f-bar{border-top:1px solid var(--divider);}
+.f-bar .inner{
+  max-width:1300px;margin:0 auto;padding:13px 36px;
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+  font-size:13px;color:#9EAFCC;
+}
+.f-bar .tag{color:#DCE5F2;font-weight:500;}
+.f-bar .tag .usa{color:#FF4A4A;font-weight:700;}
+ 
+/* ================= RESPONSIVE ================= */
+@media (max-width:1080px){
+  .fc-inner{width:72%;}
+  .red-panel{right:9%;}
+  .usa-map{width:96px;}
+}
+@media (max-width:900px){
+  .top{grid-template-columns:1fr;gap:18px;}
+  .testimonial{min-height:0;}
+  .fc-inner{width:100%;padding:26px 28px 26px;}
+  .red-panel{right:-80px;transform:none;
+    background:linear-gradient(96deg,#C10F2B,#E62128 60%,rgba(240,48,47,.93));}
+  .formcard{min-height:0;}
+  .f-main{grid-template-columns:1fr 1fr;row-gap:30px;}
+  .f-col:nth-child(3){padding-left:0;border-left:none;}
+  .usa-map{position:static;margin-top:16px;}
+}
+@media (max-width:560px){
+  .wrap{padding:0 16px;}
+  .grid2{grid-template-columns:1fr;}
+  .testimonial{padding:24px 22px;}
+  .fc-inner{padding:24px 22px 26px;}
+  .f-main{grid-template-columns:1fr;padding:30px 20px 22px;}
+  .f-col{padding-left:0;border-left:none;}
+  .f-bar .inner{flex-direction:column;text-align:center;padding:14px 20px;}
+  .submit{width:100%;justify-content:center;}
+}
+@media (prefers-reduced-motion:reduce){
+  .t-slide,.submit{transition:none;}
+}
+</style>
+
+
+
+<body>
+
+    <!-- =========================
+     NAVBAR
+========================= -->
+    <!-- ==========================================
+     GOOGLE FONT
+========================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- ==========================================
+     FONT AWESOME
+========================================== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+    <!-- ==========================================
+     NAVBAR
+========================================== -->
+
+    <header class="vs-header">
+
+        <div class="vs-nav-container">
+
+            <!-- LOGO -->
+            <a href="#home" class="vs-logo">
+
+                <span class="vs-logo-mark">
+                    <span class="vs-logo-v">V</span>
+                    <span class="vs-logo-s">S</span>
+                </span>
+
+                <span class="vs-logo-content">
+                    <strong>DIGI WORLD</strong>
+                    <small>GROW · CONNECT · CONVERT</small>
+                </span>
+
+            </a>
+
+
+            <!-- DESKTOP NAVIGATION -->
+            <nav class="vs-navigation" aria-label="Main Navigation">
+
+                <ul class="vs-nav-menu">
+
+                    <li class="active">
+                        <a href="#home">HOME</a>
+                    </li>
+
+                    <li>
+                        <a href="#services">SERVICES</a>
+                    </li>
+
+                    <li>
+                        <a href="#about">ABOUT US</a>
+                    </li>
+
+                    <li>
+                        <a href="#case-studies">CASE STUDIES</a>
+                    </li>
+
+                    <li>
+                        <a href="#pricing">PRICING</a>
+                    </li>
+
+                    <li>
+                        <a href="#blog">BLOG</a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+
+            <!-- DESKTOP CTA -->
+            <a href="#contact" class="vs-nav-cta">
+                GET FREE CONSULTATION
+            </a>
+
+
+            <!-- MOBILE TOGGLE -->
+            <button type="button" class="vs-mobile-toggle" aria-label="Open navigation" aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+
+
+        <!-- ==========================================
+         MOBILE NAVIGATION
+    =========================================== -->
+
+        <div class="vs-mobile-menu">
+
+            <nav aria-label="Mobile Navigation">
+
+                <a href="#home">HOME</a>
+
+                <a href="#services">SERVICES</a>
+
+                <a href="#about">ABOUT US</a>
+
+                <a href="#case-studies">CASE STUDIES</a>
+
+                <a href="#pricing">PRICING</a>
+
+                <a href="#blog">BLOG</a>
+
+                <a href="#contact" class="vs-mobile-cta">
+                    GET FREE CONSULTATION
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ==========================================
+     HERO SECTION
+========================================== -->
+
+    <section class="vs-hero" id="home">
+
+
+        <!-- ========================================
+         HERO BACKGROUND
+    ========================================= -->
+
+        <div class="vs-hero-background"></div>
+
+
+        <!-- ========================================
+         HERO CONTAINER
+    ========================================= -->
+
+        <div class="vs-hero-container">
+
+
+            <!-- ======================================
+             LEFT CONTENT
+        ======================================= -->
+
+            <div class="vs-hero-content">
+
+                <h1>
+                    WE RUN ADS.<br>
+                    YOU GET MORE<br>
+                    <span>CUSTOMERS.</span>
+                </h1>
+
+
+                <p class="vs-hero-description">
+                    RESULT-DRIVEN DIGITAL MARKETING SERVICES<br>
+                    TO GROW YOUR BUSINESS
+                    <strong>IN THE USA.</strong>
+                </p>
+
+
+                <!-- BULLETS -->
+
+                <ul class="vs-hero-points">
+
+                    <li>
+                        <span class="vs-check-icon">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+
+                        <span>
+                            Targeted Ads that bring Quality Leads
+                        </span>
+                    </li>
+
+
+                    <li>
+                        <span class="vs-check-icon">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+
+                        <span>
+                            More Calls, More Sales, More Revenue
+                        </span>
+                    </li>
+
+
+                    <li>
+                        <span class="vs-check-icon">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+
+                        <span>
+                            Data-Driven Strategies that Deliver ROI
+                        </span>
+                    </li>
+
+                </ul>
+
+
+                <!-- CTA -->
+
+                <a tel="+17272751986" class="vs-hero-cta">
+
+                    <span class="vs-hero-cta-icon">
+                        <!-- <i class="fa-solid fa-user-tie"></i> -->
+                        <!-- <i class="fa-solid fa-circle-chevron-right"></i> -->
+                        <i class="fa-solid fa-phone"></i>
+                    </span>
+
+                    <span>
+                        GET FREE CONSULTATION
+                    </span>
+
+                </a>
+
+
+                <!-- CONTACT -->
+
+                <div class="vs-contact-row">
+
+                    <a href="tel:+17272751986">
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        <span>+1 (727) 275-1986</span>
+
+                    </a>
+
+
+                    <span class="vs-contact-separator"></span>
+
+
+                    <a href="https://www.vsdigiworld.com" target="_blank" rel="noopener">
+
+                        <i class="fa-solid fa-globe"></i>
+
+                        <span>www.vsdigiworld.com</span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ======================================
+             STATISTICS
+        ======================================= -->
+
+            <div class="vs-statistics">
+
+
+                <!-- LEADS -->
+
+                <div class="vs-stat-card vs-stat-card-1">
+
+                    <div class="vs-stat-label">
+                        LEADS GENERATED
+                    </div>
+
+                    <div class="vs-stat-main">
+
+                        <strong>1,245</strong>
+
+                        <span class="vs-stat-growth up">
+                            <i class="fa-solid fa-arrow-up"></i>
+                            38%
+                        </span>
+
+                    </div>
+
+
+                    <div class="vs-chart vs-chart-blue">
+
+                        <span style="height: 25%;"></span>
+                        <span style="height: 48%;"></span>
+                        <span style="height: 34%;"></span>
+                        <span style="height: 62%;"></span>
+                        <span style="height: 49%;"></span>
+                        <span style="height: 76%;"></span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- COST PER LEAD -->
+
+                <div class="vs-stat-card vs-stat-card-2">
+
+                    <div class="vs-stat-label">
+                        COST PER LEAD
+                    </div>
+
+                    <div class="vs-stat-main">
+
+                        <strong>$12.45</strong>
+
+                        <span class="vs-stat-growth down">
+                            <i class="fa-solid fa-arrow-down"></i>
+                            24%
+                        </span>
+
+                    </div>
+
+
+                    <div class="vs-chart vs-chart-blue">
+
+                        <span style="height: 22%;"></span>
+                        <span style="height: 43%;"></span>
+                        <span style="height: 34%;"></span>
+                        <span style="height: 64%;"></span>
+                        <span style="height: 48%;"></span>
+                        <span style="height: 76%;"></span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CONVERSIONS -->
+
+                <div class="vs-stat-card vs-stat-card-3">
+
+                    <div class="vs-stat-label">
+                        CONVERSIONS
+                    </div>
+
+                    <div class="vs-stat-main">
+
+                        <strong>892</strong>
+
+                        <span class="vs-stat-growth up">
+                            <i class="fa-solid fa-arrow-up"></i>
+                            52%
+                        </span>
+
+                    </div>
+
+
+                    <div class="vs-chart vs-chart-blue">
+
+                        <span style="height: 24%;"></span>
+                        <span style="height: 42%;"></span>
+                        <span style="height: 31%;"></span>
+                        <span style="height: 59%;"></span>
+                        <span style="height: 51%;"></span>
+                        <span style="height: 78%;"></span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ======================================
+             USA BADGE
+        ======================================= -->
+
+            <div class="vs-market-badge">
+
+                <div class="vs-market-icon">
+
+                    <i class="fa-solid fa-bullseye"></i>
+
+                </div>
+
+
+                <div class="vs-market-text">
+
+                    <strong>
+                        FOCUSED ON USA MARKET.
+                    </strong>
+
+                    <span>
+                        MORE LEADS. BETTER ROI.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="services-section">
+        <div class="services-container">
+
+            <!-- Section Heading -->
+            <div class="services-heading">
+
+                <span class="services-label">OUR SERVICES</span>
+
+                <h2>
+                    COMPLETE DIGITAL MARKETING SOLUTIONS
+                    <br />
+                    TO GROW YOUR BUSINESS <span>IN USA</span>
+                </h2>
+
+                <div class="heading-line"></div>
+
+            </div>
+
+
+            <!-- Services Grid -->
+            <div class="services-grid">
+
+                <!-- Google Ads -->
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+
+                    <h3>GOOGLE ADS</h3>
+
+                    <p>
+                        High converting Search<br />
+                        &amp; Display Ads to get<br />
+                        more leads &amp; sales.
+                    </p>
+
+                </div>
+
+
+                <!-- Meta Ads -->
+                <div class="service-card">
+
+                    <div class="service-icon meta-icon">
+                        <i class="fa-brands fa-meta"></i>
+                    </div>
+
+                    <h3>META ADS</h3>
+
+                    <p>
+                        Facebook &amp; Instagram<br />
+                        Ads that reach the<br />
+                        right audience.
+                    </p>
+
+                </div>
+
+
+                <!-- Call Ads -->
+                <div class="service-card">
+
+                    <div class="service-icon call-icon">
+                        <i class="fa-solid fa-phone-volume"></i>
+                    </div>
+
+                    <h3>CALL ADS</h3>
+
+                    <p>
+                        Drive more phone calls<br />
+                        with our call-focused<br />
+                        ad campaigns.
+                    </p>
+
+                </div>
+
+
+                <!-- Local SEO -->
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+
+                    <h3>LOCAL SEO</h3>
+
+                    <p>
+                        Rank higher in local<br />
+                        search &amp; get more<br />
+                        local customers.
+                    </p>
+
+                </div>
+
+
+                <!-- Conversion Optimization -->
+                <div class="service-card">
+
+                    <div class="service-icon conversion-icon">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                    </div>
+
+                    <h3>
+                        CONVERSION<br />
+                        OPTIMIZATION
+                    </h3>
+
+                    <p>
+                        Improve your website<br />
+                        &amp; landing pages to<br />
+                        increase conversions.
+                    </p>
+
+                </div>
+
+
+                <!-- Analytics -->
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+
+                    <h3>
+                        ANALYTICS &amp;<br />
+                        REPORTING
+                    </h3>
+
+                    <p>
+                        Transparent reports<br />
+                        with real data &amp; clear<br />
+                        insights.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <section class="ads-solutions">
+
+        <!-- ==============================
+       TRUST / RESULTS SECTION
+  =============================== -->
+        <div class="ads-trust">
+
+            <div class="ads-trust-inner">
+
+                <div class="ads-trust-content">
+
+                    <div class="trust-heading">
+                        WHY BUSINESSES CHOOSE
+                        <span>VS DIGITAL WORLD</span>
+                    </div>
+
+                    <div class="trust-points">
+                        <div>
+                            <i class="fa-solid fa-circle-check"></i>
+                            USA Market Experts
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-circle-check"></i>
+                            ROI-Focused Strategies
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-circle-check"></i>
+                            High Quality Leads
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-circle-check"></i>
+                            Transparent Reporting
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-circle-check"></i>
+                            Dedicated Account Manager
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-circle-check"></i>
+                            100% Result Oriented
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- STAT -->
+                <div class="trust-stat">
+
+                    <div class="trust-stat-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div class="trust-stat-number">500+</div>
+
+                    <div class="trust-stat-label">
+                        Happy Clients
+                    </div>
+
+                </div>
+
+
+                <!-- STAT -->
+                <div class="trust-stat">
+
+                    <div class="trust-stat-icon">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+
+                    <div class="trust-stat-number">2500+</div>
+
+                    <div class="trust-stat-label">
+                        Campaigns Launched
+                    </div>
+
+                </div>
+
+
+                <!-- STAT -->
+                <div class="trust-stat">
+
+                    <div class="trust-stat-icon">
+                        <i class="fa-solid fa-chart-column"></i>
+                    </div>
+
+                    <div class="trust-stat-number">30M+</div>
+
+                    <div class="trust-stat-label">
+                        Ad Budget Managed
+                    </div>
+
+                </div>
+
+
+                <!-- STAT -->
+                <div class="trust-stat">
+
+                    <div class="trust-stat-icon">
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+
+                    <div class="trust-stat-number">4.9/5</div>
+
+                    <div class="trust-stat-label">
+                        Client Rating
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==============================
+       PLATFORMS SECTION
+  =============================== -->
+        <section class="ads-platforms">
+
+            <div class="ads-container">
+
+
+                <div class="services-heading">
+                    <h2>WE RUN ADS ON TOP PLATFORMS</h2>
+                </div>
+
+
+                <div class="platform-grid">
+
+                    <!-- Google -->
+                    <div class="platform">
+
+                        <div class="platform-logo google-logo">
+                            <img src="https://cdn-icons-png.magnific.com/256/2875/2875421.png?semt=ais_white_label"
+                                alt="Google Ads Icon" />
+                        </div>
+
+                        <div class="platform-name">
+                            Google Ads
+                        </div>
+
+                    </div>
+
+
+                    <!-- Meta -->
+                    <div class="platform">
+
+                        <div class="platform-logo meta-logo">
+                            <i class="fa-brands fa-meta"></i>
+                        </div>
+
+                        <div class="platform-name">
+                            Meta<br>Ads
+                        </div>
+
+                    </div>
+
+
+                    <!-- YouTube -->
+                    <div class="platform">
+
+                        <div class="platform-logo youtube-logo">
+                            <!-- <i class="fa-brands fa-youtube"></i> -->
+                            <img src="https://www.vhv.rs/dpng/d/456-4566575_youtube-instagram-facebook-icon-youtube-logo-png-transparent.png"
+                                alt="YouTube Ads Icon" />
+                        </div>
+
+                        <div class="platform-name">
+                            YouTube<br>Ads
+                        </div>
+
+                    </div>
+
+
+                    <!-- LinkedIn -->
+                    <div class="platform">
+
+                        <div class="platform-logo linkedin-logo">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </div>
+
+                        <div class="platform-name">
+                            LinkedIn<br>Ads
+                        </div>
+
+                    </div>
+
+
+                    <!-- Microsoft -->
+                    <div class="platform">
+
+                        <div class="platform-logo microsoft-logo">
+                            <img src="https://i.pinimg.com/736x/91/92/1c/91921cec4f8a8cbe3d09e596e0659d81.jpg"
+                                alt="Microsoft Ads Icon" />
+                            <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/960px-Microsoft_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="Microsoft Ads Icon" /> -->
+                        </div>
+
+                        <div class="platform-name">
+                            Microsoft<br>Ads
+                        </div>
+
+                    </div>
+
+
+                    <!-- TikTok -->
+                    <div class="platform">
+
+                        <div class="platform-logo tiktok-logo">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </div>
+
+                        <div class="platform-name">
+                            TikTok<br>Ads
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+       PROCESS SECTION
+  =============================== -->
+        <section class="ads-process">
+
+            <div class="ads-container">
+
+
+                <div class="services-heading">
+                    <h2>OUR PROVEN <span> 5-STEP </span> PROCESS</h2>
+                </div>
+
+
+                <div class="process-box">
+
+                    <!-- STEP 1 -->
+                    <div class="process-item">
+
+                        <div class="process-icon">
+                            <i class="fa-solid fa-magnifying-glass-chart"></i>
+                        </div>
+
+                        <div class="process-title">
+                            1. RESEARCH
+                        </div>
+
+                        <p>
+                            We research your market,
+                            audience &amp; competitors.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-arrow">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+
+
+                    <!-- STEP 2 -->
+                    <div class="process-item">
+
+                        <div class="process-icon">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+
+                        <div class="process-title">
+                            2. STRATEGY
+                        </div>
+
+                        <p>
+                            Create a custom strategy
+                            focused on your goals.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-arrow">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+
+
+                    <!-- STEP 3 -->
+                    <div class="process-item">
+
+                        <div class="process-icon">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+
+                        <div class="process-title">
+                            3. LAUNCH
+                        </div>
+
+                        <p>
+                            We launch high-performing
+                            ad campaigns.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-arrow">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+
+
+                    <!-- STEP 4 -->
+                    <div class="process-item">
+
+                        <div class="process-icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+
+                        <div class="process-title">
+                            4. OPTIMIZE
+                        </div>
+
+                        <p>
+                            We monitor, test &amp; optimize
+                            for better results.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-arrow">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+
+
+                    <!-- STEP 5 -->
+                    <div class="process-item">
+
+                        <div class="process-icon">
+                            <i class="fa-solid fa-dollar-sign"></i>
+                        </div>
+
+                        <div class="process-title">
+                            5. GROW
+                        </div>
+
+                        <p>
+                            You get quality leads,
+                            sales &amp; business growth.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+
+
+
+
+
+
+
+<div id="contact" class="wrap">
+  <div class="top">
+ 
+    <section class="testimonial">
+      <h2>WHAT OUR CLIENTS SAY</h2>
+      <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+      <div class="t-stage" id="tStage" aria-live="polite"></div>
+    </section>
+ 
+    <section class="formcard">
+      <div class="red-panel" aria-hidden="true"></div>
+ 
+      <div class="fc-inner">
+        <h2>GET YOUR FREE CONSULTATION NOW!</h2>
+        <p class="sub">Tell us about your business and we'll create a custom plan for you.</p>
+ 
+        <form id="consultForm" novalidate>
+          <div class="grid2">
+            <div class="field">
+              <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" required>
+            </div>
+            <div class="field">
+              <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" required>
+            </div>
+            <div class="field">
+              <input type="tel" name="phone" placeholder="Your Phone Number" aria-label="Your Phone Number" required>
+            </div>
+            <div class="field select">
+              <select name="service" aria-label="Select Service" required>
+                <option value="" disabled selected>Select Service</option>
+                <option>Google Ads</option>
+                <option>Meta Ads</option>
+                <option>Call Ads</option>
+                <option>Local SEO</option>
+                <option>Conversion Optimization</option>
+                <option>Analytics &amp; Reporting</option>
+              </select>
+            </div>
+            <div class="field full">
+              <textarea name="message" placeholder="Tell us about your business" aria-label="Tell us about your business"></textarea>
+            </div>
+          </div>
+ 
+          <div class="btn-row">
+            <button type="submit" class="submit">
+              GET FREE CONSULTATION
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 20.5L22 12 2.5 3.5v6.6L16 12 2.5 13.9z"/></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+ 
+  </div>
+</div>
+ 
+<footer>
+  <div class="f-main">
+ 
+    <div class="f-col">
+      <div class="logo">
+        <svg width="50" height="32" viewBox="0 0 50 32" aria-label="VS">
+          <text x="1" y="25" font-family="Poppins,Arial,sans-serif" font-size="31"
+                font-weight="800" fill="#ffffff" letter-spacing="-2.4"
+                transform="skewX(-9)">VS</text>
+        </svg>
+        <span class="logo-txt">
+          <span class="l1">DIGI WORLD</span>
+          <span class="l2">GROW • CONNECT • CONVERT</span>
+        </span>
+      </div>
+      <p class="brand-p">Helping businesses in USA grow with result-driven digital marketing solutions.</p>
+    </div>
+ 
+    <div class="f-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Case Studies</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+ 
+    <div class="f-col">
+      <h3>Services</h3>
+      <ul>
+        <li><a href="#">Google Ads</a></li>
+        <li><a href="#">Meta Ads</a></li>
+        <li><a href="#">Call Ads</a></li>
+        <li><a href="#">Local SEO</a></li>
+        <li><a href="#">Conversion Optimization</a></li>
+        <li><a href="#">Analytics &amp; Reporting</a></li>
+      </ul>
+    </div>
+ 
+    <div class="f-col contact">
+      <h3>Contact Us</h3>
+ 
+      <div class="c-row">
+        <span class="c-ico"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg></span>
+        <span>+1 (727) 275-1986</span>
+      </div>
+ 
+      <div class="c-row">
+        <span class="c-ico"><svg viewBox="0 0 24 24"><path d="M3 5h18c.6 0 1 .4 1 1v12c0 .6-.4 1-1 1H3c-.6 0-1-.4-1-1V6c0-.6.4-1 1-1zm1 2.6V17h16V7.6l-8 5.6-8-5.6z"/></svg></span>
+        <span>info@vsdigiworld.com</span>
+      </div>
+ 
+      <div class="c-row">
+        <span class="c-ico"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm6.9 6h-3a15.7 15.7 0 00-1.4-3.6A8 8 0 0118.9 8zM12 4c.8 1.2 1.4 2.5 1.8 4h-3.6c.4-1.5 1-2.8 1.8-4zM4.3 14a7.9 7.9 0 010-4h3.4a17.6 17.6 0 000 4H4.3zm.8 2h3c.3 1.3.8 2.5 1.4 3.6A8 8 0 015.1 16zM8.1 8h-3a8 8 0 014.4-3.6A15.7 15.7 0 008.1 8zM12 20c-.8-1.2-1.4-2.5-1.8-4h3.6c-.4 1.5-1 2.8-1.8 4zm2.3-6H9.7a15.4 15.4 0 010-4h4.6a15.4 15.4 0 010 4zm.6 5.6c.6-1.1 1.1-2.3 1.4-3.6h3a8 8 0 01-4.4 3.6zm1.4-5.6a17.6 17.6 0 000-4h3.4a7.9 7.9 0 010 4h-3.4z"/></svg></span>
+        <span>www.vsdigiworld.com</span>
+      </div>
+ 
+      <div class="c-row">
+        <span class="c-ico"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg></span>
+        <span>Serving Businesses Across USA</span>
+      </div>
+ 
+      <!-- <div class="usa-map" aria-label="Serving the USA">
+        <svg viewBox="0 0 175 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <clipPath id="usaShape">
+              <path d="M12,28 L40,22 L70,20 L96,20 L100,27 L110,21 L116,30 L128,26 L142,20 L151,13 L155,22 L147,32 L142,44 L147,53 L154,70 L157,89 L150,86 L144,66 L133,60 L120,64 L110,59 L103,74 L96,60 L86,55 L72,54 L58,49 L48,43 L34,46 L22,45 L14,37 Z"/>
+            </clipPath>
+          </defs>
+          <g clip-path="url(#usaShape)">
+            <rect width="175" height="105" fill="#B22234"/>
+            <g fill="#FFFFFF">
+              <rect y="8"  width="175" height="7"/>
+              <rect y="23" width="175" height="7"/>
+              <rect y="38" width="175" height="7"/>
+              <rect y="53" width="175" height="7"/>
+              <rect y="68" width="175" height="7"/>
+              <rect y="83" width="175" height="7"/>
+            </g>
+            <rect x="0" y="0" width="88" height="54" fill="#3C3B6E"/>
+            <g fill="#FFFFFF">
+              <circle cx="10" cy="8"  r="2"/><circle cx="26" cy="8"  r="2"/><circle cx="42" cy="8"  r="2"/><circle cx="58" cy="8"  r="2"/>
+              <circle cx="18" cy="17" r="2"/><circle cx="34" cy="17" r="2"/><circle cx="50" cy="17" r="2"/><circle cx="66" cy="17" r="2"/>
+              <circle cx="10" cy="26" r="2"/><circle cx="26" cy="26" r="2"/><circle cx="42" cy="26" r="2"/><circle cx="58" cy="26" r="2"/>
+              <circle cx="18" cy="35" r="2"/><circle cx="34" cy="35" r="2"/><circle cx="50" cy="35" r="2"/><circle cx="66" cy="35" r="2"/>
+              <circle cx="10" cy="44" r="2"/><circle cx="26" cy="44" r="2"/><circle cx="42" cy="44" r="2"/><circle cx="58" cy="44" r="2"/>
+            </g>
+          </g>
+        </svg>
+      </div> -->
+    </div>
+  </div>
+ 
+  <div class="f-bar">
+    <div class="inner">
+      <span>&copy; 2025 VS Digi World. All Rights Reserved.</span>
+      <span class="tag">Let's Grow Your Business in <span class="usa">USA!</span></span>
+    </div>
+  </div>
+</footer>
+ 
+<script>
+const TESTIMONIALS = [
+  {
+    text:"VS Digi World has transformed our business! The quality of leads and ROI we get from their ads is exceptional.",
+    name:"James R.", role:"Business Owner, USA", stars:5,
+    img:"https://images.unsplash.com/photo-1651684215020-f7a5b6610f23?fm=jpg&q=80&w=200&h=200&fit=crop&crop=faces",
+    initials:"JR", color:"#2F5FAF"
+  },
+  {
+    text:"Their team took our Google Ads to a whole new level. We doubled our booked calls in just two months.",
+    name:"Sophia M.", role:"Marketing Head, USA", stars:5,
+    img:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?fm=jpg&q=80&w=200&h=200&fit=crop&crop=faces",
+    initials:"SM", color:"#B03A48"
+  },
+  {
+    text:"Professional, responsive and truly data-driven. Our cost per lead dropped while conversions kept climbing.",
+    name:"Daniel K.", role:"Founder, USA", stars:5,
+    img:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fm=jpg&q=80&w=200&h=200&fit=crop&crop=faces",
+    initials:"DK", color:"#2E7D66"
+  },
+  {
+    text:"Best marketing decision we made this year. The custom plan they built fits our market perfectly.",
+    name:"Olivia T.", role:"CEO, USA", stars:5,
+    img:"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?fm=jpg&q=80&w=200&h=200&fit=crop&crop=faces",
+    initials:"OT", color:"#7A4BA8"
+  }
+];
+ 
+function fallbackAvatar(initials,color){
+  var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120">'+
+    '<rect width="120" height="120" fill="'+color+'"/>'+
+    '<text x="50%" y="50%" dy="2" dominant-baseline="middle" text-anchor="middle" '+
+    'font-family="Poppins,Arial" font-size="44" font-weight="700" fill="#fff">'+initials+'</text></svg>';
+  return 'data:image/svg+xml;utf8,'+encodeURIComponent(svg);
+}
+ 
+var stage = document.getElementById('tStage');
+ 
+TESTIMONIALS.forEach(function(t,i){
+  var el = document.createElement('div');
+  el.className = 't-slide' + (i===0 ? ' is-active' : '');
+ 
+  var p = document.createElement('p');
+  p.className = 't-text';
+  p.textContent = t.text;
+ 
+  var person = document.createElement('div');
+  person.className = 't-person';
+ 
+  var img = document.createElement('img');
+  img.className = 't-avatar';
+  img.src = t.img;
+  img.alt = t.name;
+  img.loading = 'lazy';
+  img.onerror = function(){ this.onerror = null; this.src = fallbackAvatar(t.initials, t.color); };
+ 
+  var meta = document.createElement('div');
+  meta.innerHTML = '<div class="t-name"></div><div class="t-role"></div>'+
+                   '<div class="t-stars">' + '★'.repeat(t.stars) + '</div>';
+  meta.querySelector('.t-name').textContent = t.name;
+  meta.querySelector('.t-role').textContent = t.role;
+ 
+  person.appendChild(img);
+  person.appendChild(meta);
+  el.appendChild(p);
+  el.appendChild(person);
+  stage.appendChild(el);
+});
+ 
+var slides = stage.querySelectorAll('.t-slide');
+var current = 0, timer = null;
+ 
+function startRotation(){
+  if(slides.length < 2 || timer) return;
+  timer = setInterval(function(){
+    slides[current].classList.remove('is-active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('is-active');
+  }, 6000);
+}
+function stopRotation(){ clearInterval(timer); timer = null; }
+ 
+startRotation();
+stage.addEventListener('mouseenter', stopRotation);
+stage.addEventListener('mouseleave', startRotation);
+document.addEventListener('visibilitychange', function(){
+  document.hidden ? stopRotation() : startRotation();
+});
+ 
+var service = document.querySelector('select[name="service"]');
+service.addEventListener('change', function(){
+  service.classList.toggle('has-value', !!service.value);
+});
+ 
+document.getElementById('consultForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var btn = this.querySelector('.submit');
+  var html = btn.innerHTML;
+  var form = this;
+  btn.innerHTML = "Thanks! We'll be in touch \u2713";
+  btn.style.background = '#1E7A4C';
+  setTimeout(function(){
+    btn.innerHTML = html;
+    btn.style.background = '';
+    form.reset();
+    service.classList.remove('has-value');
+  }, 2600);
+});
+</script>
+
+
+
+
+</body>
+
+</html>

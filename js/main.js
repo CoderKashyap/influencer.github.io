@@ -75,6 +75,40 @@ if (brandsTrack && !brandsTrack.dataset.doubled) {
   brandsTrack.dataset.doubled = "true";
 }
 
+const influencerRail = document.querySelector("[data-influencer-rail]");
+const influencerNavButtons = document.querySelectorAll("[data-influencer-nav]");
+
+if (influencerRail && influencerNavButtons.length) {
+  const updateInfluencerNavState = () => {
+    const maxScroll = influencerRail.scrollWidth - influencerRail.clientWidth;
+
+    influencerNavButtons.forEach((button) => {
+      const isPrev = button.dataset.influencerNav === "prev";
+      const atStart = influencerRail.scrollLeft <= 4;
+      const atEnd = influencerRail.scrollLeft >= maxScroll - 4;
+
+      button.disabled = maxScroll <= 4 ? true : isPrev ? atStart : atEnd;
+    });
+  };
+
+  influencerNavButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const direction = button.dataset.influencerNav === "next" ? 1 : -1;
+      const card = influencerRail.querySelector(".mini-influencer-card");
+      const step = card ? card.getBoundingClientRect().width + 14 : 280;
+
+      influencerRail.scrollBy({
+        left: step * direction,
+        behavior: "smooth",
+      });
+    });
+  });
+
+  influencerRail.addEventListener("scroll", updateInfluencerNavState, { passive: true });
+  window.addEventListener("resize", updateInfluencerNavState);
+  updateInfluencerNavState();
+}
+
 const featuredRail = document.querySelector("[data-featured-rail]");
 const featuredNavButtons = document.querySelectorAll("[data-featured-nav]");
 
@@ -90,5 +124,44 @@ featuredNavButtons.forEach((button) => {
       left: step * direction,
       behavior: "smooth",
     });
+  });
+});
+
+document.querySelectorAll("[data-film-player]").forEach((wrap) => {
+  const video = wrap.querySelector(".film-video");
+  const toggle = wrap.querySelector("[data-film-toggle]");
+  const durationLabel = wrap.querySelector("[data-film-duration]");
+
+  if (!video || !toggle) return;
+
+  const play = () => {
+    video.muted = false;
+    video.play();
+    wrap.classList.add("is-playing");
+  };
+
+  const pause = () => {
+    video.pause();
+    wrap.classList.remove("is-playing");
+  };
+
+  toggle.addEventListener("click", play);
+
+  video.addEventListener("click", () => {
+    if (video.paused) {
+      play();
+    } else {
+      pause();
+    }
+  });
+
+  video.addEventListener("ended", pause);
+
+  video.addEventListener("loadedmetadata", () => {
+    if (!durationLabel || !Number.isFinite(video.duration)) return;
+
+    const minutes = Math.floor(video.duration / 60);
+    const seconds = Math.floor(video.duration % 60).toString().padStart(2, "0");
+    durationLabel.textContent = `${minutes}:${seconds}`;
   });
 });

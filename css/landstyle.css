@@ -1,0 +1,3122 @@
+/* =========================================================
+   VS DIGI WORLD
+   NAVBAR + HERO
+========================================================= */
+
+
+/* =========================================================
+   ROOT VARIABLES
+========================================================= */
+
+:root {
+
+    --vs-blue: #073b82;
+    --vs-dark-blue: #092f68;
+    --vs-red: #e51f26;
+
+    --vs-text: #17345e;
+
+    --vs-white: #ffffff;
+
+    --vs-light-border: #e8e8e8;
+
+    --vs-container: 1440px;
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: "Poppins", sans-serif;
+
+    color: var(--vs-text);
+
+    background: #ffffff;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.vs-header {
+
+    position: relative;
+
+    z-index: 9999;
+
+    width: 100%;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #eeeeee;
+
+    box-shadow:
+        0 1px 5px rgba(0, 0, 0, 0.04);
+}
+
+
+.vs-nav-container {
+
+    width: min(100%, var(--vs-container));
+
+    height: 76px;
+
+    margin: 0 auto;
+
+    padding: 0 90px;
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.vs-logo {
+
+    display: flex;
+
+    align-items: center;
+
+    flex-shrink: 0;
+
+    width: 235px;
+
+    color: var(--vs-dark-blue);
+
+}
+
+
+.vs-logo-mark {
+
+    position: relative;
+
+    width: 48px;
+
+    height: 40px;
+
+    margin-right: 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 28px;
+
+    font-weight: 900;
+
+    letter-spacing: -7px;
+
+    line-height: 1;
+
+}
+
+
+.vs-logo-v {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: #073e88;
+
+}
+
+
+.vs-logo-s {
+
+    position: relative;
+
+    z-index: 1;
+
+    margin-left: 1px;
+
+    color: var(--vs-red);
+
+}
+
+
+.vs-logo-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    line-height: 1;
+
+}
+
+
+.vs-logo-content strong {
+
+    color: #0b3068;
+
+    font-size: 21px;
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    letter-spacing: -0.7px;
+
+}
+
+
+.vs-logo-content small {
+
+    margin-top: 5px;
+
+    color: #596b82;
+
+    font-size: 7px;
+
+    line-height: 1;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
+
+.vs-navigation {
+
+    flex: 1;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.vs-nav-menu {
+
+    height: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    list-style: none;
+
+}
+
+
+.vs-nav-menu li {
+
+    position: relative;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+.vs-nav-menu a {
+
+    position: relative;
+
+    height: 100%;
+
+    padding: 0 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #111111;
+
+    font-size: 12px;
+
+    line-height: 1;
+
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    transition: color 0.2s ease;
+
+}
+
+
+.vs-nav-menu a:hover {
+
+    color: var(--vs-red);
+
+}
+
+
+.vs-nav-menu li.active a {
+
+    color: var(--vs-red);
+
+}
+
+
+.vs-nav-menu li.active a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 18px;
+
+    right: 18px;
+
+    bottom: 0;
+
+    height: 2px;
+
+    background: var(--vs-red);
+
+}
+
+
+/* =========================================================
+   NAV CTA
+========================================================= */
+
+.vs-nav-cta {
+
+    flex-shrink: 0;
+
+    width: 202px;
+
+    height: 39px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 6px;
+
+    background: var(--vs-red);
+
+    color: #ffffff;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: -0.1px;
+
+    box-shadow:
+        0 5px 12px rgba(229, 31, 38, 0.18);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.vs-nav-cta:hover {
+
+    background: #cc171e;
+
+    color: #ffffff;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* =========================================================
+   MOBILE TOGGLE
+========================================================= */
+
+.vs-mobile-toggle {
+
+    display: none;
+
+    width: 42px;
+
+    height: 42px;
+
+    padding: 0;
+
+    border: 0;
+
+    outline: 0;
+
+    background: transparent;
+
+    color: var(--vs-dark-blue);
+
+    font-size: 21px;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.vs-mobile-menu {
+
+    display: none;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.vs-hero {
+
+    position: relative;
+
+    min-height: 555px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+}
+
+
+/* =========================================================
+   HERO BACKGROUND
+========================================================= */
+
+.vs-hero-background {
+
+    position: absolute;
+
+    z-index: 0;
+
+    top: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    width: 76%;
+
+    background-image:
+
+        /* Strong white fade */
+
+        linear-gradient(90deg,
+
+            /* #ffffff 0%, */
+
+            /* #ffffff 12%, */
+
+            rgba(255, 255, 255, 0.99) 22%,
+
+            /* rgba(255,255,255,0.92) 31%, */
+
+            /* rgba(255,255,255,0.70) 42%, */
+
+            /* rgba(255,255,255,0.28) 54%, */
+
+            rgba(255, 255, 255, 0) 70%),
+
+        /* Slight top fade */
+
+        /* linear-gradient(
+            180deg,
+            rgba(255,255,255,0.10),
+            rgba(255,255,255,0)
+        ), */
+
+        /* TEMPORARY IMAGE */
+
+        url("https://images.pexels.com/photos/33946997/pexels-photo-33946997.jpeg");
+
+    background-repeat: no-repeat;
+
+    background-size:
+        100% 100%,
+        100% 100%,
+        cover;
+
+    background-position:
+        center,
+        center,
+        center right;
+
+}
+
+
+/* Additional fade layer */
+
+/* .vs-hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    z-index: 1;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+
+        linear-gradient(
+            90deg,
+
+            rgba(255,255,255,1) 0%,
+
+            rgba(255,255,255,1) 18%,
+
+            rgba(255,255,255,0.97) 27%,
+
+            rgba(255,255,255,0.75) 40%,
+
+            rgba(255,255,255,0.20) 58%,
+
+            rgba(255,255,255,0) 72%
+        );
+
+} */
+
+
+/* =========================================================
+   HERO CONTAINER
+========================================================= */
+
+.vs-hero-container {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(100%, var(--vs-container));
+
+    min-height: 555px;
+
+    margin: 0 auto;
+
+    padding:
+        43px 90px 30px;
+
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.vs-hero-content {
+
+    width: 500px;
+
+    max-width: 500px;
+
+}
+
+
+/* =========================================================
+   HERO HEADING
+========================================================= */
+
+.vs-hero-content h1 {
+
+    margin: 0;
+
+    color: #0a3678;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 64px;
+
+    line-height: 1.00;
+
+    font-weight: 800;
+
+    letter-spacing: -3px;
+
+}
+
+
+.vs-hero-content h1 span {
+
+    color: var(--vs-red);
+
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
+
+.vs-hero-description {
+
+    margin: 18px 0 17px;
+
+    color: #183a66;
+
+    font-size: 16px;
+
+    line-height: 1.42;
+
+    font-weight: 700;
+
+    letter-spacing: -0.25px;
+
+}
+
+
+.vs-hero-description strong {
+
+    color: var(--vs-red);
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   HERO BULLETS
+========================================================= */
+
+.vs-hero-points {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+    margin: 0 0 21px;
+
+    padding: 0;
+
+    list-style: none;
+
+}
+
+
+.vs-hero-points li {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #173c6c;
+
+    font-size: 13px;
+
+    line-height: 1.35;
+
+    font-weight: 400;
+
+}
+
+
+/* CHECK */
+
+.vs-check-icon {
+
+    width: 20px;
+
+    height: 20px;
+
+    flex: 0 0 20px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #1760ae;
+
+    color: #ffffff;
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   HERO CTA
+========================================================= */
+
+.vs-hero-cta {
+
+    cursor: pointer;
+    width: 350px;
+
+    height: 54px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    border-radius: 6px;
+
+    background: var(--vs-red);
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 6px 15px rgba(229, 31, 38, 0.18);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.vs-hero-cta:hover {
+
+    background: #ca171d;
+
+    color: #ffffff;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* CTA ICON */
+
+.vs-hero-cta-icon {
+
+    width: 30px;
+
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #0b3d80;
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   CONTACT ROW
+========================================================= */
+
+.vs-contact-row {
+
+    margin-top: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+.vs-contact-row a {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #132f57;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+.vs-contact-row a i {
+
+    color: #071f3e;
+
+    font-size: 13px;
+
+}
+
+
+.vs-contact-separator {
+
+    width: 1px;
+
+    height: 20px;
+
+    margin: 0 15px;
+
+    background: #bfc5cd;
+
+}
+
+
+/* =========================================================
+   STATISTICS WRAPPER
+========================================================= */
+
+.vs-statistics {
+
+    position: absolute;
+
+    top: 160px;
+
+    right: 8%;
+
+    width: 500px;
+
+    height: 300px;
+
+}
+
+
+/* =========================================================
+   STAT CARD
+========================================================= */
+
+.vs-stat-card {
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 120px;
+
+    padding: 14px 15px;
+
+    border: 1px solid rgba(225, 225, 225, 0.8);
+
+    border-radius: 6px;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    box-shadow:
+        0 5px 16px rgba(0, 0, 0, 0.14);
+
+}
+
+
+.vs-stat-card-1 {
+
+    top: 0;
+
+    left: 0;
+
+}
+
+
+.vs-stat-card-2 {
+
+    top: 78px;
+
+    left: 155px;
+
+}
+
+
+.vs-stat-card-3 {
+
+    top: 156px;
+
+    left: 310px;
+
+}
+
+
+/* =========================================================
+   STAT LABEL
+========================================================= */
+
+.vs-stat-label {
+
+    color: #697582;
+
+    font-size: 8px;
+
+    line-height: 1.2;
+
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+}
+
+
+/* =========================================================
+   STAT MAIN
+========================================================= */
+
+.vs-stat-main {
+
+    margin-top: 6px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.vs-stat-main strong {
+
+    color: #122f57;
+
+    font-size: 21px;
+
+    line-height: 1;
+
+    font-weight: 800;
+
+}
+
+
+.vs-stat-growth {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 2px;
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+}
+
+
+.vs-stat-growth.up {
+
+    color: #24a16a;
+
+}
+
+
+.vs-stat-growth.down {
+
+    color: #24a16a;
+
+}
+
+
+/* =========================================================
+   MINI CHART
+========================================================= */
+
+.vs-chart {
+
+    height: 39px;
+
+    margin-top: 8px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 5px;
+
+    border-bottom: 1px solid #dbe2ea;
+
+}
+
+
+.vs-chart span {
+
+    display: block;
+
+    width: 16px;
+
+    min-height: 5px;
+
+    border-radius: 2px 2px 0 0;
+
+    background: #69a6e2;
+
+}
+
+
+/* =========================================================
+   USA MARKET BADGE
+========================================================= */
+
+.vs-market-badge {
+
+    position: absolute;
+
+    right: 11.5%;
+
+    bottom: 22px;
+
+    width: 340px;
+
+    min-height: 67px;
+
+    padding: 8px 20px 8px 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    border-radius: 36px;
+
+    background: #073f87;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 5px 13px rgba(0, 0, 0, 0.15);
+
+}
+
+
+/* =========================================================
+   BADGE ICON
+========================================================= */
+
+.vs-market-icon {
+
+    width: 51px;
+
+    height: 51px;
+
+    flex: 0 0 51px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 2px solid #ffffff;
+
+    border-radius: 50%;
+
+    font-size: 23px;
+
+}
+
+
+/* =========================================================
+   BADGE TEXT
+========================================================= */
+
+.vs-market-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+}
+
+
+.vs-market-text strong {
+
+    font-size: 12px;
+
+    line-height: 1.25;
+
+    font-weight: 800;
+
+}
+
+
+.vs-market-text span {
+
+    font-size: 9px;
+
+    line-height: 1.25;
+
+    font-weight: 500;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   RESET
+========================================= */
+
+/* =========================================
+   SECTION
+========================================= */
+
+.services-section {
+  width: 100%;
+  background: #ffffff;
+  padding: 60px 18px;
+}
+
+.services-container {
+  width: 100%;
+  max-width: 1193px;
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.services-heading {
+  text-align: center;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.services-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 20px;
+  padding: 0 12px;
+  margin-bottom: 16px;
+
+  background: #e5232d;
+  color: #ffffff;
+
+  border-radius: 10px;
+
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 20px;
+
+  letter-spacing: 0.2px;
+
+  position: relative;
+  z-index: 2;
+}
+
+
+/* Main Heading */
+
+.services-heading h2 {
+
+  color: #142d63;
+
+  font-size: 25px;
+  line-height: 1.04;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+}
+
+.services-heading h2 span {
+  color: #e5232d;
+}
+
+
+/* Small red underline */
+
+.heading-line {
+  width: 30px;
+  height: 3px;
+
+  background: #e5232d;
+
+  margin: 7px auto 0;
+
+  border-radius: 2px;
+}
+
+
+/* =========================================
+   GRID
+========================================= */
+
+.services-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+
+  gap: 8px;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.service-card {
+  min-width: 0;
+
+  height: 224px;
+
+  background: #ffffff;
+
+  border: 1px solid #edf0f4;
+
+  border-radius: 9px;
+
+  box-shadow:
+    0 1px 4px rgba(22, 45, 82, 0.04),
+    0 4px 12px rgba(22, 45, 82, 0.025);
+
+  text-align: center;
+
+  padding: 18px 8px 12px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* Optional hover */
+
+.service-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 4px 14px rgba(22, 45, 82, 0.08),
+    0 10px 25px rgba(22, 45, 82, 0.05);
+}
+
+
+/* =========================================
+   ICON
+========================================= */
+
+.service-icon {
+  width: 62px;
+  height: 62px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 9px;
+
+  color: #1266c9;
+
+  font-size: 52px;
+
+  line-height: 1;
+}
+
+
+/* Individual icon adjustments */
+
+.meta-icon {
+  font-size: 54px;
+}
+
+.call-icon {
+  color: #e5232d;
+  font-size: 50px;
+}
+
+.conversion-icon {
+  color: #e5232d;
+  font-size: 51px;
+}
+
+
+/* =========================================
+   CARD TITLE
+========================================= */
+
+.service-card h3 {
+  min-height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 8px;
+
+  color: #182f63;
+
+  font-size: 15px;
+
+  line-height: 1.05;
+
+  font-weight: 800;
+
+  letter-spacing: -0.15px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================
+   CARD DESCRIPTION
+========================================= */
+
+.service-card p {
+  color: #555b66;
+
+  font-size: 13px;
+
+  line-height: 1.48;
+
+  font-weight: 500;
+
+  margin: 0;
+
+  letter-spacing: -0.05px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+/* Large desktop */
+
+@media (min-width: 1200px) {
+
+  .services-section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .services-grid {
+    gap: 9px;
+  }
+
+}
+
+
+/* Laptop */
+
+@media (max-width: 1050px) {
+
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .service-card {
+    height: 215px;
+  }
+
+}
+
+
+/* Tablet */
+
+@media (max-width: 700px) {
+
+  .services-section {
+    padding: 15px;
+  }
+
+  .services-heading h2 {
+    font-size: 21px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 480px) {
+
+  .services-section {
+    padding: 12px;
+  }
+
+  .services-heading {
+    margin-bottom: 15px;
+  }
+
+  .services-label {
+    height: 19px;
+    font-size: 9px;
+    padding: 0 10px;
+  }
+
+  .services-heading h2 {
+    font-size: 18px;
+    line-height: 1.12;
+    letter-spacing: -0.2px;
+  }
+
+  .heading-line {
+    margin-top: 6px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .service-card {
+    height: auto;
+    min-height: 205px;
+    padding: 20px 15px;
+  }
+
+}
+
+
+
+
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (max-width: 1250px) {
+
+    .vs-nav-container,
+    .vs-hero-container {
+
+        padding-left: 50px;
+
+        padding-right: 50px;
+
+    }
+
+
+    .vs-logo {
+
+        width: 205px;
+
+    }
+
+
+    .vs-nav-menu a {
+
+        padding-left: 12px;
+
+        padding-right: 12px;
+
+        font-size: 11px;
+
+    }
+
+
+    .vs-nav-menu li.active a::after {
+
+        left: 12px;
+
+        right: 12px;
+
+    }
+
+
+    .vs-nav-cta {
+
+        width: 180px;
+
+        font-size: 10px;
+
+    }
+
+
+    .vs-hero-content h1 {
+
+        font-size: 55px;
+
+    }
+
+
+    .vs-statistics {
+
+        right: 4%;
+
+        transform: scale(0.88);
+
+        transform-origin: top right;
+
+    }
+
+
+    .vs-market-badge {
+
+        right: 4%;
+
+        transform: scale(0.88);
+
+        transform-origin: bottom right;
+
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    .vs-nav-container {
+
+        height: 70px;
+
+        padding-left: 30px;
+
+        padding-right: 30px;
+
+    }
+
+
+    .vs-logo {
+
+        width: 180px;
+
+    }
+
+
+    .vs-logo-content strong {
+
+        font-size: 18px;
+
+    }
+
+
+    .vs-navigation {
+
+        justify-content: flex-end;
+
+    }
+
+
+    .vs-nav-menu a {
+
+        padding: 0 8px;
+
+        font-size: 10px;
+
+    }
+
+
+    .vs-nav-menu li.active a::after {
+
+        left: 8px;
+
+        right: 8px;
+
+    }
+
+
+    .vs-nav-cta {
+
+        width: 155px;
+
+        height: 36px;
+
+        font-size: 9px;
+
+    }
+
+
+    .vs-hero {
+
+        min-height: 530px;
+
+    }
+
+
+    .vs-hero-container {
+
+        min-height: 530px;
+
+        padding: 38px 30px 25px;
+
+    }
+
+
+    .vs-hero-content {
+
+        width: 460px;
+
+    }
+
+
+    /* .vs-hero-content::before {
+        content: "";
+        position: absolute;
+        width: 750px;
+        height: 420px;
+        left: -100px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: radial-gradient(ellipse,
+                rgba(255, 255, 255, 0.98) 0%,
+                rgba(255, 255, 255, 0.90) 28%,
+                rgba(255, 255, 255, 0.55) 52%,
+                rgba(255, 255, 255, 0.18) 72%,
+                rgba(255, 255, 255, 0) 100%);
+        pointer-events: none;
+        z-index: 0;
+    } */
+
+    .vs-hero-content h1 {
+
+        font-size: 50px;
+
+    }
+
+
+    .vs-hero-description {
+
+        font-size: 14px;
+
+    }
+
+
+    .vs-statistics {
+
+        right: 0;
+
+        transform: scale(0.76);
+
+    }
+
+
+    .vs-market-badge {
+
+        right: 2%;
+
+        bottom: 18px;
+
+        transform: scale(0.78);
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+
+    /* -----------------------------------------
+       NAVBAR
+    ----------------------------------------- */
+
+    .vs-nav-container {
+
+        height: 68px;
+
+        padding: 0 18px;
+
+    }
+
+
+    .vs-logo {
+
+        width: auto;
+
+    }
+
+
+    .vs-logo-mark {
+
+        width: 39px;
+
+        height: 35px;
+
+        margin-right: 5px;
+
+        font-size: 25px;
+
+    }
+
+
+    .vs-logo-content strong {
+
+        font-size: 17px;
+
+        letter-spacing: -0.5px;
+
+    }
+
+
+    .vs-logo-content small {
+
+        font-size: 6px;
+
+        letter-spacing: 0.7px;
+
+    }
+
+
+    .vs-navigation,
+    .vs-nav-cta {
+
+        display: none;
+
+    }
+
+
+    .vs-mobile-toggle {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        margin-left: auto;
+
+    }
+
+
+    /* -----------------------------------------
+       MOBILE MENU
+    ----------------------------------------- */
+
+    .vs-mobile-menu {
+
+        position: absolute;
+
+        top: 68px;
+
+        left: 0;
+
+        right: 0;
+
+        display: block;
+
+        max-height: 0;
+
+        overflow: hidden;
+
+        opacity: 0;
+
+        pointer-events: none;
+
+        background: #ffffff;
+
+        box-shadow:
+            0 8px 20px rgba(0, 0, 0, 0.12);
+
+        transition:
+            max-height 0.35s ease,
+            opacity 0.25s ease;
+
+    }
+
+
+    .vs-mobile-menu.open {
+
+        max-height: 500px;
+
+        opacity: 1;
+
+        pointer-events: auto;
+
+    }
+
+
+    .vs-mobile-menu nav {
+
+        padding: 5px 18px 18px;
+
+        display: flex;
+
+        flex-direction: column;
+
+    }
+
+
+    .vs-mobile-menu nav>a {
+
+        min-height: 46px;
+
+        display: flex;
+
+        align-items: center;
+
+        border-bottom: 1px solid #eeeeee;
+
+        color: #132d51;
+
+        font-size: 12px;
+
+        font-weight: 600;
+
+    }
+
+
+    .vs-mobile-menu nav>a:hover {
+
+        color: var(--vs-red);
+
+    }
+
+
+    .vs-mobile-menu .vs-mobile-cta {
+
+        justify-content: center;
+
+        margin-top: 13px;
+
+        min-height: 45px;
+
+        border: 0;
+
+        border-radius: 5px;
+
+        background: var(--vs-red);
+
+        color: #ffffff;
+
+        font-weight: 700;
+
+    }
+
+
+    /* -----------------------------------------
+       HERO
+    ----------------------------------------- */
+
+    .vs-hero {
+
+        min-height: auto;
+
+    }
+
+
+    /* =========================================================
+   HERO BACKGROUND
+========================================================= */
+
+.vs-hero-background {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 76%;
+
+    background-image:
+        url("https://images.pexels.com/photos/33946997/pexels-photo-33946997.jpeg");
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center right;
+}
+
+/* Soft white glow only behind hero text */
+.vs-hero::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+
+    /*
+     * This controls the size of the white area.
+     * Smaller = less white.
+     */
+    width: 720px;
+    height: 430px;
+
+    left: 0;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 0.98) 0%,
+        rgba(255, 255, 255, 0.92) 25%,
+        rgba(255, 255, 255, 0.65) 45%,
+        rgba(255, 255, 255, 0.28) 62%,
+        rgba(255, 255, 255, 0) 78%
+    );
+
+    pointer-events: none;
+}
+
+
+    /* -----------------------------------------
+       HERO CONTAINER
+    ----------------------------------------- */
+
+    .vs-hero-container {
+
+        min-height: auto;
+
+        padding:
+            38px 20px 35px;
+
+    }
+
+
+    /* -----------------------------------------
+       CONTENT
+    ----------------------------------------- */
+
+    .vs-hero-content {
+
+        width: 100%;
+
+        max-width: 100%;
+
+    }
+
+
+    .vs-hero-content h1 {
+
+        font-size: clamp(40px, 11vw, 52px);
+
+        line-height: 1.00;
+
+        letter-spacing: -2px;
+
+    }
+
+
+    .vs-hero-description {
+
+        margin-top: 17px;
+
+        font-size: 12px;
+
+        line-height: 1.45;
+
+    }
+
+
+    .vs-hero-points {
+
+        gap: 9px;
+
+        margin-top: 17px;
+
+        margin-bottom: 21px;
+
+    }
+
+
+    .vs-hero-points li {
+
+        font-size: 11px;
+
+    }
+
+
+    .vs-check-icon {
+
+        width: 18px;
+
+        height: 18px;
+
+        flex-basis: 18px;
+
+        font-size: 9px;
+
+    }
+
+
+    /* -----------------------------------------
+       CTA
+    ----------------------------------------- */
+
+    .vs-hero-cta {
+
+        width: 100%;
+
+        max-width: 350px;
+
+        height: 52px;
+
+        font-size: 13px;
+
+    }
+
+
+    /* -----------------------------------------
+       CONTACT
+    ----------------------------------------- */
+
+    .vs-contact-row {
+
+        flex-wrap: wrap;
+
+        row-gap: 7px;
+
+        margin-top: 14px;
+
+    }
+
+
+    .vs-contact-row a {
+
+        font-size: 10px;
+
+    }
+
+
+    .vs-contact-separator {
+
+        margin:
+            0 7px;
+
+    }
+
+
+    /* -----------------------------------------
+       STATISTICS
+    ----------------------------------------- */
+
+    .vs-statistics {
+
+        position: relative;
+
+        top: auto;
+
+        right: auto;
+
+        width: 100%;
+
+        height: 145px;
+
+        margin-top: 35px;
+
+        transform: none;
+
+    }
+
+
+    .vs-stat-card {
+
+        width: 31%;
+
+        height: 100px;
+
+        padding: 10px;
+
+    }
+
+
+    .vs-stat-card-1 {
+
+        top: 0;
+
+        left: 0;
+
+    }
+
+
+    .vs-stat-card-2 {
+
+        top: 23px;
+
+        left: 34.5%;
+
+    }
+
+
+    .vs-stat-card-3 {
+
+        top: 46px;
+
+        left: 69%;
+
+    }
+
+
+    .vs-stat-label {
+
+        font-size: 6px;
+
+    }
+
+
+    .vs-stat-main strong {
+
+        font-size: 14px;
+
+    }
+
+
+    .vs-stat-growth {
+
+        font-size: 6px;
+
+    }
+
+
+    .vs-chart {
+
+        height: 30px;
+
+        gap: 2px;
+
+        margin-top: 7px;
+
+    }
+
+
+    .vs-chart span {
+
+        width: 9px;
+
+    }
+
+
+    /* -----------------------------------------
+       BADGE
+    ----------------------------------------- */
+
+    .vs-market-badge {
+
+        position: relative;
+
+        right: auto;
+
+        bottom: auto;
+
+        width: 100%;
+
+        max-width: 350px;
+
+        min-height: 61px;
+
+        margin:
+            4px auto 0;
+
+        padding: 7px 15px 7px 9px;
+
+        transform: none;
+
+    }
+
+
+    .vs-market-icon {
+
+        width: 45px;
+
+        height: 45px;
+
+        flex-basis: 45px;
+
+        font-size: 19px;
+
+    }
+
+
+    .vs-market-text strong {
+
+        font-size: 10px;
+
+    }
+
+
+    .vs-market-text span {
+
+        font-size: 8px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+
+    .vs-nav-container {
+
+        padding-left: 14px;
+
+        padding-right: 14px;
+
+    }
+
+
+    .vs-hero-container {
+
+        padding-left: 16px;
+
+        padding-right: 16px;
+
+    }
+
+
+    .vs-logo-content strong {
+
+        font-size: 16px;
+
+    }
+
+
+    .vs-hero-content h1 {
+
+        font-size: 38px;
+
+        letter-spacing: -1.5px;
+
+    }
+
+
+    .vs-hero-description {
+
+        font-size: 11px;
+
+    }
+
+
+    .vs-hero-points li {
+
+        font-size: 10px;
+
+    }
+
+
+    .vs-stat-card {
+
+        padding: 8px;
+
+    }
+
+
+    .vs-stat-main strong {
+
+        font-size: 12px;
+
+    }
+
+
+    .vs-stat-growth {
+
+        font-size: 5px;
+
+    }
+
+
+    .vs-chart span {
+
+        width: 7px;
+
+    }
+
+}
+
+
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+.ads-solutions {
+  --navy: #082c63;
+  --dark-blue: #06285c;
+  --blue: #1768c4;
+  --red: #ed2737;
+  --text: #263b67;
+  --muted: #656b75;
+  --border: #e9edf3;
+
+  width: 100%;
+  background: #fff;
+
+  overflow: hidden;
+}
+
+
+.ads-container {
+  width: min(1200px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   1. TRUST SECTION
+========================================================= */
+
+.ads-trust {
+  width: 100%;
+
+  background:
+    linear-gradient(
+      115deg,
+      #06285d 0%,
+      #07346d 48%,
+      #07447c 100%
+    );
+
+  color: #fff;
+}
+
+
+.ads-trust-inner {
+  width: min(1220px, calc(100% - 40px));
+
+  min-height: 142px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    1.55fr
+    repeat(4, 1fr);
+
+  align-items: stretch;
+}
+
+
+/* =========================================================
+   TRUST INTRO
+========================================================= */
+
+.ads-trust-content {
+  padding: 22px 30px 20px 18px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  min-width: 0;
+}
+
+
+.trust-heading {
+  margin-bottom: 16px;
+
+  font-size: 22px;
+  line-height: 1.05;
+
+  font-weight: 700;
+
+  letter-spacing: .15px;
+
+  color: #fff;
+}
+
+
+.trust-heading span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #f0293a;
+}
+
+
+/* =========================================================
+   TRUST POINTS
+========================================================= */
+
+.trust-points {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+
+.trust-points > div {
+  display: flex;
+  align-items: center;
+
+  color: #fff;
+
+  font-size: 12px;
+  line-height: 1.2;
+
+  white-space: nowrap;
+}
+
+
+.trust-points i {
+  margin-right: 6px;
+
+  font-size: 8px;
+
+  color: #fff;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.trust-stat {
+  min-width: 0;
+
+  border-left: 1px solid rgba(255, 255, 255, .17);
+
+  padding: 18px 12px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+
+.trust-stat-icon {
+  height: 31px;
+  width: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 12px;
+
+  color: #fff;
+
+  font-size: 25px;
+}
+
+
+.trust-stat-number {
+  color: #fff;
+
+  font-size: 28px;
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: -.5px;
+}
+
+
+.trust-stat-label {
+  margin-top: 12px;
+
+  color: rgba(255,255,255,.95);
+
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   2. PLATFORMS
+========================================================= */
+
+.ads-platforms {
+  background: #fff;
+  padding: 40px;
+}
+
+
+.ads-heading {
+  text-align: center;
+
+  margin-bottom: 22px;
+}
+
+
+.ads-heading span {
+  color: var(--text);
+
+  font-size: 13px;
+  line-height: 1.2;
+
+  font-weight: 800;
+
+  letter-spacing: .3px;
+}
+
+
+/* =========================================================
+   PLATFORM GRID
+========================================================= */
+
+.platform-grid {
+  width: min(1000px, 100%);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(6, 1fr);
+
+  border: 1px solid transparent;
+}
+
+
+.platform {
+  min-height: 83px;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: flex-start;
+
+  padding: 2px 12px 10px;
+}
+
+
+/* vertical line */
+
+.platform:not(:last-child)::after {
+  content: "";
+
+  position: absolute;
+
+  top: 3px;
+  right: 0;
+
+  width: 1px;
+  height: 62px;
+
+  background: #e7ebf1;
+}
+
+
+/* =========================================================
+   PLATFORM LOGO
+========================================================= */
+
+.platform-logo {
+  width: 54px;
+  height: 39px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 8px;
+
+  font-size: 28px;
+}
+
+
+
+
+.meta-logo {
+  color: #0879df;
+ font-size: 3rem;
+}
+
+
+.youtube-logo {
+  color: #ff0000;
+}
+
+
+.linkedin-logo {
+  color: #1469a9;
+ font-size: 3rem;
+}
+
+
+.microsoft-logo {
+  color: #1470bf;
+}
+
+
+.tiktok-logo {
+  color: #111;
+ font-size: 2.5rem;
+}
+
+
+.platform-name {
+  color: #3e434b;
+
+  font-size: 14px;
+  line-height: 1.25;
+  margin-top: 14px;
+  font-weight: 600;
+
+  text-align: center;
+}
+
+
+
+/* =========================================================
+   3. PROCESS
+========================================================= */
+
+.ads-process {
+  background: #fff;
+
+  /* padding-top: 4px;
+  padding-bottom: 42px; */
+}
+
+
+.process-heading {
+  text-align: center;
+
+  margin-bottom: 21px;
+
+  color: var(--text);
+
+  font-size: 13px;
+  line-height: 1.2;
+
+  font-weight: 800;
+
+  letter-spacing: .3px;
+}
+
+
+.process-heading span {
+  color: var(--text);
+}
+
+
+/* =========================================================
+   PROCESS BOX
+========================================================= */
+
+.process-box {
+  width: 100%;
+
+  min-height: 150px;
+
+  padding: 22px 28px 20px;
+
+  border: 1px solid #e7ebf1;
+
+  border-radius: 10px;
+
+  background: #fff;
+
+  box-shadow:
+    0 3px 12px rgba(20, 46, 90, .045);
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    42px
+    1fr
+    42px
+    1fr
+    42px
+    1fr
+    42px
+    1fr;
+
+  align-items: center;
+}
+
+
+/* =========================================================
+   PROCESS ITEM
+========================================================= */
+
+.process-item {
+  min-width: 0;
+
+  min-height: 106px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: flex-start;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   PROCESS ICON
+========================================================= */
+
+.process-icon {
+  width: 50px;
+  height: 50px;
+
+  flex: 0 0 50px;
+
+  border-radius: 50%;
+
+  border: 2px solid #173a71;
+
+  background: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 11px;
+
+  color: #173a71;
+
+  font-size: 22px;
+
+  box-shadow:
+    0 0 0 4px #f4f7fb;
+}
+
+
+/* =========================================================
+   PROCESS TITLE
+========================================================= */
+
+.process-title {
+  margin-bottom: 12px;
+
+  color: #263b68;
+
+  font-size: 18px;
+  line-height: 1.1;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   PROCESS DESCRIPTION
+========================================================= */
+
+.process-item p {
+  max-width: 180px;
+
+  margin: 0;
+
+  color: #666c75;
+
+  font-size: 12px;
+  line-height: 1.45;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   ARROWS
+========================================================= */
+
+.process-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #a9b0ba;
+
+  font-size: 15px;
+}
+
+
+.process-arrow i {
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   HOVER — SUBTLE
+========================================================= */
+
+.platform,
+.process-item,
+.trust-stat {
+  transition:
+    transform .25s ease,
+    opacity .25s ease;
+}
+
+
+.platform:hover {
+  transform: translateY(-3px);
+}
+
+
+.process-item:hover {
+  transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1200px) {
+
+  .ads-trust-inner {
+    min-height: 150px;
+  }
+
+  /* .ads-platforms {
+    padding-top: 34px;
+    padding-bottom: 32px;
+  } */
+
+  /* .ads-process {
+    padding-bottom: 48px;
+  } */
+
+  .process-box {
+    min-height: 160px;
+
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .ads-trust-inner {
+    grid-template-columns:
+      1.4fr
+      repeat(4, .9fr);
+  }
+
+
+  .ads-trust-content {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+
+  .trust-heading {
+    font-size: 11px;
+  }
+
+
+  .trust-points > div {
+    font-size: 7.5px;
+  }
+
+
+  .trust-stat-number {
+    font-size: 18px;
+  }
+
+
+  .trust-stat-label {
+    font-size: 7px;
+  }
+
+
+  .platform-grid {
+    width: min(700px, 100%);
+  }
+
+
+  .process-box {
+    padding-left: 15px;
+    padding-right: 15px;
+
+    grid-template-columns:
+      1fr
+      25px
+      1fr
+      25px
+      1fr
+      25px
+      1fr
+      25px
+      1fr;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .ads-container {
+    width: min(100% - 30px, 600px);
+  }
+
+
+  /* TRUST */
+
+  .ads-trust-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  .ads-trust-content {
+    grid-column: 1 / -1;
+
+    padding:
+      24px
+      20px;
+
+    align-items: center;
+
+    text-align: center;
+  }
+
+
+  .trust-heading {
+    font-size: 13px;
+  }
+
+
+  .trust-points {
+    align-items: flex-start;
+  }
+
+
+  .trust-stat {
+    min-height: 105px;
+  }
+
+
+  /* PLATFORMS */
+
+  .ads-platforms {
+    padding-top: 35px;
+    padding-bottom: 32px;
+  }
+
+
+  .platform-grid {
+    grid-template-columns: repeat(3, 1fr);
+
+    row-gap: 20px;
+  }
+
+
+  .platform:nth-child(3)::after,
+  .platform:nth-child(6)::after {
+    display: none;
+  }
+
+
+  /* PROCESS */
+
+  /* .ads-process {
+    padding-bottom: 35px;
+  } */
+
+
+  .process-box {
+    grid-template-columns: 1fr;
+
+    gap: 8px;
+
+    padding:
+      25px
+      20px;
+  }
+
+
+  .process-item {
+    min-height: 120px;
+  }
+
+
+  .process-arrow {
+    transform: rotate(90deg);
+
+    height: 20px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .ads-container {
+    width: calc(100% - 24px);
+  }
+
+
+  .ads-trust-inner {
+    width: 100%;
+  }
+
+
+  .ads-trust-content {
+    padding:
+      22px
+      15px;
+  }
+
+
+  .trust-points {
+    width: max-content;
+  }
+
+
+  .trust-points > div {
+    font-size: 7.5px;
+  }
+
+
+  .trust-stat {
+    min-height: 92px;
+
+    padding:
+      14px
+      5px;
+  }
+
+
+  .trust-stat-number {
+    font-size: 16px;
+  }
+
+
+  .trust-stat-label {
+    font-size: 6.5px;
+  }
+
+
+  .ads-heading,
+  .process-heading {
+    margin-bottom: 18px;
+  }
+
+
+  .ads-heading span,
+  .process-heading {
+    font-size: 11px;
+  }
+
+
+  .platform-grid {
+    row-gap: 24px;
+  }
+
+
+  .platform {
+    min-height: 76px;
+  }
+
+
+  .platform-logo {
+    margin-bottom: 6px;
+  }
+
+
+  .process-box {
+    padding:
+      24px
+      14px;
+  }
+
+}
