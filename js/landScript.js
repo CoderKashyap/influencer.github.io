@@ -1,11 +1,55 @@
 
+/* =========================================
+   SMOOTH SCROLL FOR IN-PAGE ANCHOR LINKS
+   (kept in JS, scoped to .wblp-page, instead
+   of a global `html { scroll-behavior: smooth }`
+   rule that would affect the whole host site
+   if this page is merged into an existing one)
+========================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const page = document.querySelector(".wblp-page");
+
+    if (!page) {
+        return;
+    }
+
+    page.addEventListener("click", function (event) {
+
+        const link = event.target.closest('a[href^="#"]');
+
+        if (!link || !page.contains(link)) {
+            return;
+        }
+
+        const hash = link.getAttribute("href");
+
+        if (!hash || hash.length < 2) {
+            return;
+        }
+
+        const target = document.getElementById(hash.slice(1));
+
+        if (!target) {
+            return;
+        }
+
+        event.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    });
+
+});
+
+
 document.addEventListener("DOMContentLoaded", function () {
 
     const mobileToggle =
-        document.querySelector(".vs-mobile-toggle");
+        document.querySelector(".wblp-mobile-toggle");
 
     const mobileMenu =
-        document.querySelector(".vs-mobile-menu");
+        document.querySelector(".wblp-mobile-menu");
 
     if (!mobileToggle || !mobileMenu) {
         return;
@@ -19,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
     mobileToggle.addEventListener("click", function () {
 
         const isOpen =
-            mobileMenu.classList.toggle("open");
+            mobileMenu.classList.toggle("wblp-open");
 
 
         mobileToggle.setAttribute(
@@ -61,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         link.addEventListener("click", function () {
 
-            mobileMenu.classList.remove("open");
+            mobileMenu.classList.remove("wblp-open");
 
             mobileToggle.setAttribute(
                 "aria-expanded",
@@ -106,10 +150,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (
             !clickedInsideMenu &&
             !clickedToggle &&
-            mobileMenu.classList.contains("open")
+            mobileMenu.classList.contains("wblp-open")
         ) {
 
-            mobileMenu.classList.remove("open");
+            mobileMenu.classList.remove("wblp-open");
 
             mobileToggle.setAttribute(
                 "aria-expanded",
@@ -146,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (window.innerWidth > 767) {
 
-            mobileMenu.classList.remove("open");
+            mobileMenu.classList.remove("wblp-open");
 
             mobileToggle.setAttribute(
                 "aria-expanded",
@@ -181,7 +225,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const desktopLinks =
         document.querySelectorAll(
-            ".vs-nav-menu li a"
+            ".wblp-nav-menu li a"
         );
 
 
@@ -190,10 +234,10 @@ document.addEventListener("DOMContentLoaded", function () {
         link.addEventListener("click", function () {
 
             document
-                .querySelectorAll(".vs-nav-menu li")
+                .querySelectorAll(".wblp-nav-menu li")
                 .forEach(function (item) {
 
-                    item.classList.remove("active");
+                    item.classList.remove("wblp-active");
 
                 });
 
@@ -203,7 +247,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
             if (parent) {
-                parent.classList.add("active");
+                parent.classList.add("wblp-active");
             }
 
         });
@@ -250,31 +294,31 @@ function fallbackAvatar(initials, color) {
     return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
 }
 
-var stage = document.getElementById('tStage');
+var stage = document.getElementById('wblp-t-stage');
 
 TESTIMONIALS.forEach(function (t, i) {
     var el = document.createElement('div');
-    el.className = 't-slide' + (i === 0 ? ' is-active' : '');
+    el.className = 'wblp-t-slide' + (i === 0 ? ' wblp-is-active' : '');
 
     var p = document.createElement('p');
-    p.className = 't-text';
+    p.className = 'wblp-t-text';
     p.textContent = t.text;
 
     var person = document.createElement('div');
-    person.className = 't-person';
+    person.className = 'wblp-t-person';
 
     var img = document.createElement('img');
-    img.className = 't-avatar';
+    img.className = 'wblp-t-avatar';
     img.src = t.img;
     img.alt = t.name;
     img.loading = 'lazy';
     img.onerror = function () { this.onerror = null; this.src = fallbackAvatar(t.initials, t.color); };
 
     var meta = document.createElement('div');
-    meta.innerHTML = '<div class="t-name"></div><div class="t-role"></div>' +
-        '<div class="t-stars">' + '★'.repeat(t.stars) + '</div>';
-    meta.querySelector('.t-name').textContent = t.name;
-    meta.querySelector('.t-role').textContent = t.role;
+    meta.innerHTML = '<div class="wblp-t-name"></div><div class="wblp-t-role"></div>' +
+        '<div class="wblp-t-stars">' + '★'.repeat(t.stars) + '</div>';
+    meta.querySelector('.wblp-t-name').textContent = t.name;
+    meta.querySelector('.wblp-t-role').textContent = t.role;
 
     person.appendChild(img);
     person.appendChild(meta);
@@ -283,15 +327,15 @@ TESTIMONIALS.forEach(function (t, i) {
     stage.appendChild(el);
 });
 
-var slides = stage.querySelectorAll('.t-slide');
+var slides = stage.querySelectorAll('.wblp-t-slide');
 var current = 0, timer = null;
 
 function startRotation() {
     if (slides.length < 2 || timer) return;
     timer = setInterval(function () {
-        slides[current].classList.remove('is-active');
+        slides[current].classList.remove('wblp-is-active');
         current = (current + 1) % slides.length;
-        slides[current].classList.add('is-active');
+        slides[current].classList.add('wblp-is-active');
     }, 6000);
 }
 function stopRotation() { clearInterval(timer); timer = null; }
@@ -305,10 +349,10 @@ document.addEventListener('visibilitychange', function () {
 
 // var service = document.querySelector('select[name="service"]');
 // service.addEventListener('change', function () {
-//     service.classList.toggle('has-value', !!service.value);
+//     service.classList.toggle('wblp-has-value', !!service.value);
 // });
 
-const form = document.getElementById("contactForm");
+const form = document.getElementById("wblp-contact-form");
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -337,7 +381,7 @@ form.addEventListener("submit", async (e) => {
         if (result.success) {
             // alert("Form submitted successfully!");
             // form.reset();
-            var btn = form.querySelector('.submit');
+            var btn = form.querySelector('.wblp-submit');
             var html = btn.innerHTML;
             btn.innerHTML = "Thanks! We'll be in touch \u2713";
             btn.style.background = '#1E7A4C';
@@ -345,7 +389,7 @@ form.addEventListener("submit", async (e) => {
                 btn.innerHTML = html;
                 btn.style.background = '';
                 form.reset();
-                // service.classList.remove('has-value');
+                // service.classList.remove('wblp-has-value');
             }, 2600);
         }
     } catch (error) {
@@ -354,9 +398,9 @@ form.addEventListener("submit", async (e) => {
     }
 });
 
-// document.getElementById('contactForm').addEventListener('submit', function (e) {
+// document.getElementById('wblp-contact-form').addEventListener('submit', function (e) {
 //     e.preventDefault();
-//     var btn = this.querySelector('.submit');
+//     var btn = this.querySelector('.wblp-submit');
 //     var html = btn.innerHTML;
 //     var form = this;
 //     btn.innerHTML = "Thanks! We'll be in touch \u2713";
@@ -365,6 +409,6 @@ form.addEventListener("submit", async (e) => {
 //         btn.innerHTML = html;
 //         btn.style.background = '';
 //         form.reset();
-//         service.classList.remove('has-value');
+//         service.classList.remove('wblp-has-value');
 //     }, 2600);
 // });
