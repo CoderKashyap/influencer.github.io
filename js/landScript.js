@@ -294,7 +294,13 @@ function fallbackAvatar(initials, color) {
     return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
 }
 
+// Testimonial carousel + contact form only exist on pages that
+// include those sections (e.g. landingpage.html) -- guarded so this
+// shared script doesn't throw on pages like thank-you.html that
+// don't have a #wblp-t-stage / #wblp-contact-form.
 var stage = document.getElementById('wblp-t-stage');
+
+if (stage) {
 
 TESTIMONIALS.forEach(function (t, i) {
     var el = document.createElement('div');
@@ -330,15 +336,15 @@ TESTIMONIALS.forEach(function (t, i) {
 var slides = stage.querySelectorAll('.wblp-t-slide');
 var current = 0, timer = null;
 
-function startRotation() {
+var startRotation = function () {
     if (slides.length < 2 || timer) return;
     timer = setInterval(function () {
         slides[current].classList.remove('wblp-is-active');
         current = (current + 1) % slides.length;
         slides[current].classList.add('wblp-is-active');
     }, 6000);
-}
-function stopRotation() { clearInterval(timer); timer = null; }
+};
+var stopRotation = function () { clearInterval(timer); timer = null; };
 
 startRotation();
 stage.addEventListener('mouseenter', stopRotation);
@@ -347,12 +353,16 @@ document.addEventListener('visibilitychange', function () {
     document.hidden ? stopRotation() : startRotation();
 });
 
+}
+
 // var service = document.querySelector('select[name="service"]');
 // service.addEventListener('change', function () {
 //     service.classList.toggle('wblp-has-value', !!service.value);
 // });
 
 const form = document.getElementById("wblp-contact-form");
+
+if (form) {
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -379,8 +389,6 @@ form.addEventListener("submit", async (e) => {
         const result = await response.json();
 
         if (result.success) {
-            // alert("Form submitted successfully!");
-            // form.reset();
             var btn = form.querySelector('.wblp-submit');
             var html = btn.innerHTML;
             btn.innerHTML = "Thanks! We'll be in touch \u2713";
@@ -389,14 +397,16 @@ form.addEventListener("submit", async (e) => {
                 btn.innerHTML = html;
                 btn.style.background = '';
                 form.reset();
-                // service.classList.remove('wblp-has-value');
-            }, 2600);
+                window.location.href = '/thank-you/';
+            }, 1200);
         }
     } catch (error) {
         console.error(error);
         alert("Something went wrong. Please try again.");
     }
 });
+
+}
 
 // document.getElementById('wblp-contact-form').addEventListener('submit', function (e) {
 //     e.preventDefault();
