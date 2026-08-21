@@ -1313,8 +1313,8 @@ select {
 }
 
 .call-icon {
-  color: white;
-  font-size: 50px;
+  color: #1266c9;
+  font-size: 52px;
 }
 
 .conversion-icon {
@@ -1429,11 +1429,11 @@ select {
 @media (max-width: 480px) {
 
   .services-section {
-    padding: 12px;
+    padding: 50px 18px;
   }
 
   .services-heading {
-    margin-bottom: 15px;
+    margin-bottom: 30px;
   }
 
   .services-label {
@@ -1723,6 +1723,15 @@ select {
     }
 
 
+    .vs-logo img {
+
+        width: 130px;
+
+        height: auto;
+
+    }
+
+
     .vs-logo-mark {
 
         width: 39px;
@@ -1899,10 +1908,11 @@ select {
     position: absolute;
     z-index: 0;
     top: 0;
+    left: 0;
     right: 0;
     bottom: 0;
 
-    width: 76%;
+    width: 100%;
 
     background-image:
         url("https://images.pexels.com/photos/33946997/pexels-photo-33946997.jpeg");
@@ -1912,31 +1922,20 @@ select {
     background-position: center right;
 }
 
-/* Soft white glow only behind hero text */
+/* Full-height soft white wash so every piece of hero content
+   (heading, bullets, stat cards, badge) stays readable, no
+   matter how tall the stacked mobile layout gets */
 .vs-hero::before {
     content: "";
     position: absolute;
     z-index: 1;
+    inset: 0;
 
-    /*
-     * This controls the size of the white area.
-     * Smaller = less white.
-     */
-    width: 720px;
-    height: 430px;
-
-    left: 0;
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    background: radial-gradient(
-        ellipse at center,
-        rgba(255, 255, 255, 0.98) 0%,
-        rgba(255, 255, 255, 0.92) 25%,
-        rgba(255, 255, 255, 0.65) 45%,
-        rgba(255, 255, 255, 0.28) 62%,
-        rgba(255, 255, 255, 0) 78%
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.97) 0%,
+        rgba(255, 255, 255, 0.93) 45%,
+        rgba(255, 255, 255, 0.9) 100%
     );
 
     pointer-events: none;
@@ -1952,7 +1951,7 @@ select {
         min-height: auto;
 
         padding:
-            38px 20px 35px;
+            38px 20px 36px;
 
     }
 
@@ -2084,9 +2083,9 @@ select {
 
         width: 100%;
 
-        height: 145px;
+        height: 100px;
 
-        margin-top: 35px;
+        margin-top: 28px;
 
         transform: none;
 
@@ -2115,7 +2114,7 @@ select {
 
     .vs-stat-card-2 {
 
-        top: 23px;
+        top: 0;
 
         left: 34.5%;
 
@@ -2124,7 +2123,7 @@ select {
 
     .vs-stat-card-3 {
 
-        top: 46px;
+        top: 0;
 
         left: 69%;
 
@@ -2189,7 +2188,7 @@ select {
         min-height: 61px;
 
         margin:
-            4px auto 0;
+            14px auto 0;
 
         padding: 7px 15px 7px 9px;
 
@@ -2346,6 +2345,8 @@ select {
 .ads-trust {
   width: 100%;
 
+  padding: 30px 0;
+
   background:
     linear-gradient(
       115deg,
@@ -2391,7 +2392,7 @@ select {
 
 
 .trust-heading {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 
   font-size: 22px;
   line-height: 1.05;
@@ -2901,7 +2902,7 @@ select {
 
 
   .trust-points > div {
-    font-size: 7.5px;
+    font-size: 16px;
   }
 
 
@@ -2971,10 +2972,10 @@ select {
 
 
   .trust-heading {
-    font-size: 13px;
+    font-size: 18px;
   }
-
-
+  
+  
   .trust-points {
     align-items: flex-start;
   }
@@ -2990,6 +2991,7 @@ select {
   .ads-platforms {
     padding-top: 35px;
     padding-bottom: 32px;
+    padding: 20px;
   }
 
 
@@ -3063,12 +3065,13 @@ select {
 
   .trust-points {
     width: max-content;
+    font-size: 20px;
   }
 
 
-  .trust-points > div {
+  /* .trust-points > div {
     font-size: 7.5px;
-  }
+  } */
 
 
   .trust-stat {
